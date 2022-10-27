@@ -7,6 +7,22 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
+
+    public function index(){
+        $products = Products::all();
+        return response()->json(["products"=>$products], 200);
+    }
+
+    public function show($id){
+        $products = Products::find($id);
+        if($products):
+            return response()->json(["products"=>$products], 200);
+        else:
+            return response()->json(["message"=>"No Record Found"], 404);
+        endif;        
+    
+    }
+
     public function store(Request $request){
 
         //validation
