@@ -20,6 +20,11 @@ Route::get('products/{id}/show', [ProductsController::class, 'show']);
 
 Route::post('product/add', [ProductsController::class, 'store']);
 
+Route::post('products/{id}/update', [ProductsController::class, 'update']);
+// Route::put('products/{id}/update', [ProductsController::class, 'update']);
+
+Route::delete('products/{id}/delete', [ProductsController::class, 'destroy']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
